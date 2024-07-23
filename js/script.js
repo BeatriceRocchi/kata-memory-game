@@ -1,21 +1,58 @@
-console.log("Prova");
-
 //Database
-const cards = [
+let cards = [
   {
-    name: "Prova gatto",
-    image:
-      "https://img.etimg.com/thumb/width-1600,height-900,imgsize-21060,resizemode-75,msid-100628729/news/international/us/exploding-kittens-on-netflix-see-cast-release-date-and-more.jpg",
+    name: "Airedale Terrier",
   },
   {
-    name: "Prova gatto",
-    image:
-      "https://img.etimg.com/thumb/width-1600,height-900,imgsize-21060,resizemode-75,msid-100628729/news/international/us/exploding-kittens-on-netflix-see-cast-release-date-and-more.jpg",
+    name: "Corgie",
+  },
+  {
+    name: "Pastore Tedesco",
+  },
+  {
+    name: "Golden Retriever",
   },
 ];
 
-//Dati
-const gridContainer = document.querySelector(".grid_container");
+//DATI
+const gridContainer = document.getElementById("grid-container");
+const btnStart = document.getElementById("btn-start");
 
-//Funzioni
-//Popolamento griglia di gioco
+//SVOLGIMENTO
+// Al click sul bottone di start, l'array contenente le carte viene mescolato e le carte vengono inserite in griglia nell'ordine estratto
+btnStart.addEventListener("click", function () {
+  cards = shuffleCards(cards);
+
+  generateGrid();
+});
+
+//FUNZIONI
+//Mescolamento elementi array: Fisher-Yates Sorting Algorithm
+function shuffleCards(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+//Popolamento griglia contenente le card
+function generateGrid() {
+  for (let i = 1; i <= cards.length; i++) {
+    const card = createCard(i);
+
+    gridContainer.append(card);
+  }
+}
+
+function createCard(i) {
+  const card = document.createElement("div");
+  // card.innerHTML = cards[i].name;
+  card.className = "card";
+
+  card.addEventListener("click", function () {
+    console.log("cliccata", i);
+  });
+
+  return card;
+}

@@ -14,11 +14,7 @@
 }
 
 /* MAIN */
-main {
-  background-color: darkgoldenrod;
-}
-
-.grid-container {
+#grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   gap: 20px;
@@ -28,18 +24,10 @@ main {
   height: 200px;
   width: 150px;
   border: 1px solid black;
-}
-
-.card:hover .card-back {
-  display: block;
-}
-
-.card:hover .card-front {
-  display: none;
-}
-
-.card-back {
-  display: none;
+  background-color: darkgoldenrod;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ASIDE */
