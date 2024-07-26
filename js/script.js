@@ -53,7 +53,8 @@ let cards = [
 //DATI
 const gridContainer = document.getElementById("grid-container");
 const btnStart = document.getElementById("btn-start");
-const errorMsg = document.getElementById("error-msg");
+const scoreBox = document.getElementById("score-box");
+// const errorMsg = document.getElementById("error-msg");
 let counterFlip = 0;
 let flippedCards = [];
 let errors = 0;
@@ -62,7 +63,8 @@ let errors = 0;
 // Al click sul bottone di start, l'array contenente le carte viene mescolato e le carte vengono inserite in griglia nell'ordine estratto
 btnStart.addEventListener("click", function () {
   cards = shuffleCards(cards);
-
+  scoreBox.innerHTML = `<h2>Punteggio</h2>
+  <p id="error-msg">Errori: ${errors}</p>`;
   generateGrid();
 });
 
@@ -135,7 +137,8 @@ function checkCardsMatch() {
     for (let flippedCard of flippedCards) {
       let cardInner = flippedCard.querySelector(".card-inner");
       cardInner.style.webkitTransform = "rotateY(0)";
-      errorMsg.innerHTML = "Errori: " + errors;
+      scoreBox.innerHTML = `<h2>Punteggio</h2>
+      <p id="error-msg">Errori: ${errors}</p>`;
     }
   }
 

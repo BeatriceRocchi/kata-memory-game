@@ -5,7 +5,11 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Shrikhand";
+  background-image: url(/assets/img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .container {
@@ -15,6 +19,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn {
+  font-family: "Shrikhand";
+  font-size: 2.5rem;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 25px;
+  border-radius: 20px;
+  background-color: rgba(255, 69, 0, 0.8);
+  border: none;
+}
+
+.btn:hover {
+  cursor: url("/assets/img/cursor.png"), auto;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* MAIN */
@@ -41,10 +61,6 @@ body {
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
-/* .card:hover .card-inner {
-  transform: rotateY(180deg);
-} */
 
 .card-front img,
 .card-back img {
@@ -79,7 +95,7 @@ body {
 
 /* ASIDE */
 aside {
-  background-color: brown;
+  text-align: center;
 }
 
 .block-click {
